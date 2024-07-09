@@ -14,6 +14,18 @@ const formSchema = z.object({
     }),
 });
 
+export enum FormFieldType {
+    INPUT = 'input',
+    PASSWORD = 'password',
+    CHECKBOX = 'checkbox',
+    RADIO = 'radio',
+    SELECT = 'select',
+    TEXTAREA = 'textarea',
+    PHONE_INPUT = 'phoneInput',
+    DATE_PICKER = 'datePicker',
+    SKELETON = 'skeleton',
+}
+
 export function PatientForm() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -36,7 +48,35 @@ export function PatientForm() {
                     <h1 className="header">Hi there 👋🏻</h1>
                     <p className="text-dark-700">Schedule an appointment</p>
                 </section>
-                <CustomFormField control={form.control} name="Username" />
+                <div className="flex flex-col items-start justify-start gap-4">
+                    <CustomFormField
+                        control={form.control}
+                        name="Username"
+                        fieldType={FormFieldType.INPUT}
+                        label="Full Name"
+                        placeholder="Enter your full name"
+                        iconSrc="/assets/icons/user.svg"
+                        iconAlt="user"
+                    />
+                    <CustomFormField
+                        control={form.control}
+                        name="Username"
+                        fieldType={FormFieldType.INPUT}
+                        label="Email Address"
+                        placeholder="Enter your email address"
+                        iconSrc="/assets/icons/user.svg"
+                        iconAlt="user"
+                    />
+                    <CustomFormField
+                        control={form.control}
+                        name="Username"
+                        fieldType={FormFieldType.INPUT}
+                        label="Phone Number"
+                        placeholder="Enter your full name"
+                        iconSrc="/assets/icons/user.svg"
+                        iconAlt="user"
+                    />
+                </div>
                 <Button type="submit">Submit</Button>
             </form>
         </Form>
