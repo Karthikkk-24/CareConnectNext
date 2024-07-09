@@ -9,9 +9,12 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { E164Number } from 'libphonenumber-js/core';
 import Image from 'next/image';
 import React from 'react';
 import { Control } from 'react-hook-form';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import { FormFieldType } from './forms/PatientForm';
 
 interface CustomProps {
@@ -34,7 +37,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
     switch (fieldType) {
         case FormFieldType.INPUT:
             return (
-                <div className="flex rounded-md border border-dark-500 bg-dark-400">
+                <div className="flex w-full rounded-md border border-dark-500 bg-dark-400">
                     {iconSrc && (
                         <Image
                             src={iconSrc}
@@ -49,11 +52,27 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
                             type="text"
                             placeholder={placeholder}
                             {...field}
-                            className='shad-input border-0'
+                            className="border-0 w-full"
                         />
                     </FormControl>
                 </div>
             );
+        case FormFieldType.PHONE_INPUT:
+            return (
+                <FormControl>
+                    <PhoneInput
+                        placeholder={placeholder}
+                        international
+                        withCountryCallingCode
+                        value={field.value as E164Number | undefined}
+                        onChange={field.onChange}
+                        className="input-phone"
+                        defaultCountry="IN"
+                    />
+                </FormControl>
+            );
+        default:
+            return <></>;
     }
 };
 
@@ -66,7 +85,7 @@ export default function CustomFormField(props: CustomProps) {
             control={control}
             name={name}
             render={({ field }) => (
-                <FormItem className="flex-1">
+                <FormItem className="flex-1 w-full">
                     {fieldType !== FormFieldType.CHECKBOX && label && (
                         <FormLabel>{label}</FormLabel>
                     )}

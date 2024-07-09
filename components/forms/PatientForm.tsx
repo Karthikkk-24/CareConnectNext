@@ -44,11 +44,11 @@ export function PatientForm() {
                 onSubmit={form.handleSubmit(onSubmit)}
                 className="flex flex-col items-start justify-center gap-6 flex-1 w-full"
             >
-                <section className="flex flex-col items-start justify-start">
+                <section className="flex flex-col items-start justify-start w-full">
                     <h1 className="header">Hi there 👋🏻</h1>
                     <p className="text-dark-700">Schedule an appointment</p>
                 </section>
-                <div className="flex flex-col items-start justify-start gap-4">
+                <div className="flex flex-col items-start justify-start gap-4 w-full">
                     <CustomFormField
                         control={form.control}
                         name="Username"
@@ -64,17 +64,17 @@ export function PatientForm() {
                         fieldType={FormFieldType.INPUT}
                         label="Email Address"
                         placeholder="Enter your email address"
-                        iconSrc="/assets/icons/user.svg"
-                        iconAlt="user"
+                        iconSrc="/assets/icons/email.svg"
+                        iconAlt="email"
                     />
                     <CustomFormField
                         control={form.control}
-                        name="Username"
-                        fieldType={FormFieldType.INPUT}
+                        name="Phone Number"
+                        fieldType={FormFieldType.PHONE_INPUT}
                         label="Phone Number"
                         placeholder="Enter your full name"
-                        iconSrc="/assets/icons/user.svg"
-                        iconAlt="user"
+                        iconSrc="/assets/icons/phone.svg"
+                        iconAlt="passport"
                     />
                 </div>
                 <Button type="submit">Submit</Button>

@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function Home() {
     return (
         <div className="h-screen w-screen flex items-center justify-center">
-            <section className="h-full w-1/2 flex flex-col items-start justify-between p-10">
+            <section className="h-full w-1/2 flex flex-col items-start justify-between p-20">
                 <Image
                     src={'/assets/icons/logo-full.svg'}
                     alt="patient"
