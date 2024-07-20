@@ -52,7 +52,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
                             type="text"
                             placeholder={placeholder}
                             {...field}
-                            className="border-0 w-full"
+                            className="border-0 w-full focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0"
                         />
                     </FormControl>
                 </div>
