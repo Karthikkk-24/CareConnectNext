@@ -21,7 +21,7 @@ export default function Home() {
                         &copy; 2024 All Rights Reserved CareConnectNext
                     </p>
                     <Link href="/?admin=true" className="text-green-500">
-                        Admin Login
+                        Admin
                     </Link>
                 </div>
             </section>
